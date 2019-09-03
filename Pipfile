@@ -1,6 +1,6 @@
 [[source]]
 name = "pypi"
-url = "https://pypi.org/simple"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
 verify_ssl = true
 
 [dev-packages]
@@ -8,6 +8,10 @@ verify_ssl = true
 [packages]
 flask = "*"
 python-dotenv = "*"
+flask-wtf = "*"
+flask-migrate = "*"
+flask-sqlalchemy = "*"
+flask-login = "*"
 
 [requires]
 python_version = "3.7"
