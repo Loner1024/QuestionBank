@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="ui middle aligned center aligned grid">
+    <div class="column">
+        <h2 class="ui teal image header">
+            <img src="static/images/logo.jpg" class="ui circular image">
+            <div class="content">
+                Register to your account
+            </div>
+        </h2>
+        <form action="" method="post" class="ui large form">
+            {{ form.hidden_tag() }}
+            <div class="field">
+                <div class="ui left icon input">
+                    <i class="user icon"></i>
+                    {{ form.username(size=32) }}
+                </div>
+                {% for error in form.username.errors %}
+                <span style="color: red">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+            <div class="field">
+                <div class="ui left icon input">
+                    <i class="lock icon"></i>
+                    {{ form.password(size=32) }}
+                </div>
+                {% for error in form.password.errors %}
+                <span style="color: red">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+            <div class="field">
+                <div class="ui left icon input">
+                    <i class="lock icon"></i>
+                    {{ form.repassword(size=32) }}
+                </div>
+                {% for error in form.repassword.errors %}
+                <span style="color: red">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+            <div class="field">
+                <div class="ui left icon input">
+                    <i class="lock icon"></i>
+                    {{ form.student_id(size=32) }}
+                </div>
+                {% for error in form.student_id.errors %}
+                <span style="color: red">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+            <div class="field">
+                <div class="ui left icon input">
+                    <i class="lock icon"></i>
+                    {{ form.nation(size=32) }}
+                </div>
+                {% for error in form.nation.errors %}
+                <span style="color: red">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+            <div class="field">
+                <div class="ui left icon input">
+                    <i class="qq icon"></i>
+                    {{ form.qq(size=32) }}
+                </div>
+                {% for error in form.qq.errors %}
+                <span style="color: red">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+            <div>
+                {{ form.submit() }}
+            </div>
+            <p>
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                {% for message in messages %}
+                <div class="ui negative message">
+                    <i class="close icon"></i>
+                    <div class="header">{{ message }} </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+            </p>
+    </div>
+    </form>
+</div>
+<style type="text/css">
+    body {
+        background-image: url(static/images/background.jpg);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+    body>.grid {
+        height: 100%;
+    }
+
+    .image {
+        margin-top: -100px;
+    }
+
+    .column {
+        max-width: 450px;
+    }
+</style>
+<script>
+    $('.message .close')
+        .on('click', function () {
+            $(this)
+                .closest('.message')
+                .transition('fade')
+                ;
+        });
+</script>
+
+{% endblock %}

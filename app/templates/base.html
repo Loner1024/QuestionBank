@@ -38,7 +38,9 @@
         <img class="ui mini circular image" src="static/images/logo.jpg">
       </a>
       <a href="/" class="item">Home</a>
-      <a class="ui item">Logout</a>
+      <a href="{{ url_for('login') }}" class="ui item">Login</a>
+      <a href="{{ url_for('logout') }}" class="ui item">Logout</a>
+      <a href="{{ url_for('register') }}" class="ui item">Register</a>
     </div>
     <div class="right menu"></div>
   </div>

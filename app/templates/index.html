@@ -1,11 +1,28 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1></h1>
-    <form action="" method="post">
-    {{ form.hidden_tag() }}
-    {{ form.answer_1.label }}
-        {{ form.answer_1() }}
-    {{ form.submit() }}
-    </form>
+<h1></h1>
+<div class="ui raised very padded text container segment">
+    <h2 class="ui header">Welcome {{ current_user.username }}</h2>
+    <div class="ui big form">
+        <form action="" method="post">
+            {{ form.hidden_tag() }}
+            {% for field in form if field.widget.input_type != 'hidden' and field.widget.input_type != 'submit'%}
+            <div class="grouped fields">
+                    <label>{{ field.label }}</label>
+                <div class="field">
+                    {{ field() }}
+                </div>
+                {% endfor %}
+                <br>
+                {{ form.submit }}
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+$('.ui.radio.checkbox')
+  .checkbox()
+;
+</script>
 {% endblock %}
